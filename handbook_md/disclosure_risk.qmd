@@ -1,0 +1,371 @@
+# Disclosure risk assessment {#sec-6disclosure}
+
+Once the microdata has been rendered anonymous or a conclusion has been made that it cannot be rendered anonymous without too much loss of utility, the Data Curator completes the disclosure risk assessment which includes information from the anonymization using SDC as well as complementary information on any other risks associated with disclosure, and writes the disclosure risk assessment (DRA) report. The Data Curator shares this report with the Data Provider, Data Controller and Data Protection Focal Point to inform the validation of the anonymization and authorization for the release of the anonymous version of the dataset on the MDL.
+
+The DRA report must, at minimum, include the following information:
+
+1.  Summary of the DRA
+
+2.  List of UNHCR personnel, partners and/or other third parties performing each role (see Table 1) in the data curation process
+
+3.  Summary of the potential disclosure risk scenarios
+
+4.  Anonymization methods
+
+<!-- -->
+
+a.  Weights used for the anonymization
+
+b.  List of variables removed from the dataset
+
+c.  List of key variables used for the anonymization
+
+d.  Statistical disclosure control (SDC) methods performed and on which variables
+
+<!-- -->
+
+5.  Assessment of the risk of re-identification of data subjects in the microdata
+
+6.  Analysis of the utility of the anonymous microdata
+
+7.  Conclusions
+
+<!-- -->
+
+a.  Can individual data subjects be identified by any means reasonably likely, based on the data alone or in combination with other data? \[Yes / No\]
+
+b.  If necessary, are additional technical, organizational or legal measures or otherwise binding commitments in place to reduce the risk of disclosure? \[Yes / No\]
+
+c.  If the microdataset will be published on the MDL, specify the proposed Terms of Use.
+
+<!-- -->
+
+8.  Any other relevant comments or explanations.
+
+9.  Signatures, titles and dates (*Note: this is necessary for internal accountability for decision-making. As such, an email in lieu of signature is considered sufficient.*)
+
+ 
+
+A [R Markdown](https://rmarkdown.rstudio.com/) DRA report template was developed to facilitate the linkage between the anonymization and the report. This is done by combining text and code chunks[^disclosure_risk-1]. It is based off the UNHCR R Markdown report template ([`unhcrdown`](https://github.com/vidonne/unhcrdown)), which was developed to facilitate an easy-to-read report for both technical and non-technical audience. Before getting started, both need to be installed if not already.
+
+[^disclosure_risk-1]: For more information on R Markdown and code chunks: <https://rmarkdown.rstudio.com/lesson-3.html> and the full code chunk reference guide: <https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.24672569.2078611878.1633074546-1715259657.1633074546>
+
+```{r, eval = F}
+
+packages_needed = c("dplyr","foreign","ggplot2","haven","here",
+                    "kableExtra","knitr", "labelled","lubridate",
+                    "readr","readxl","rmarkdown","sampling", 
+                    "sdcMicro","stringr","survey","tidyr","tidyverse",
+                    "VIM", "writexl")
+                    repos = c(CRAN = 'https://cran.rstudio.com', 
+                              CRANextra = 'https://macos.rbind.io') 
+                    install.packages(packages_needed[!packages_needed %in% row.names(installed.packages())], dependencies = TRUE, repos = repos)
+                    update.packages(oldPkgs = packages_needed, ask = FALSE)
+                    sapply(packages_needed, require, character.only=TRUE)
+
+# UNHCR package for report template
+remotes::install_github('vidonne/unhcrdown')
+```
+
+## R Markdown text formatting {#sec-6markdownformat}
+
+The following table provides some of the syntax used in R Markdown for formatting text in the DRA report. Note this is only a sample of the various types of formatting that can be done in R Markdown. The following [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf.) is a useful tool to navigating all additional features:
+
+|              Syntax               |       Description       |
+|:---------------------------------:|:-----------------------:|
+|            \# Header 1            |        Header 1         |
+|           \## Header 2            |        Header 2         |
+|           \### Header 3           |        Header 3         |
+|           \### Header 4           |        Header 4         |
+| \*\* bold \*\* and \_\_ bold \_\_ |  **bold** and **bold**  |
+|  \* italics \* and \_ italics \_  | *italics* and *italics* |
+|           \`code text\`           |       `code text`       |
+|         \* unordered list         |   ·   unordered list    |
+|            \+ sub-item            |        sub-item         |
+|        1.     ordered list        |    1\. ordered list     |
+|        2.     ordered list        |    2\. ordered list     |
+
+ 
+
+## Getting started {#sec-6gettingstarted}
+
+The template used below will call on the anonymization workspace and pull any data frames and other objects created. Ensure the workspace was saved prior to starting to write the report (see [Prepare weights](anonymize.qmd#sec-5weights)).
+
+In cases of disproportionately stratified datasets, weights must be applied to analysis that spans across strata. The survey package can be used to apply the weights and run simple statistics.
+
+```{r, eval = F}
+
+# Create survey
+your_dataset_survey <- svydesign(ids=~0, weights=~survey_weight,strata=~your_strata,survey.lonely.psu="adjust",data=your_dataset)
+```
+
+Now you can use your_dataset_survey to calculate the statistics needed. Note that it is more useful to compare proportions produced by the results as opposed to summaries because the summaries will be estimates for the entire population of interest in the sample frame not just within the sample
+
+To start the report, open R studio and create a R Markdown file. Choose the HTML format and select the location to store the document.
+
+Every R Markdown file starts with a YAML header, where the details of the document including title, date, author and template are specified. Details are always between - - -. The title and date will display on the first page of the report as well as in the header. It is defined from the beginning together with the report template.
+
+*Creating the title and defining the template in R Markdown*
+
+```{r, eval = F}
+
+---
+title: 'UNHCR Microdata Disclosure Risk Assessment Report'
+author: 'First and Last Name - Position'
+date: '`r Sys.Date()`’
+output: unhcrdown::paged_simple
+---
+
+```
+
+To be able to "call" on the anonymization script and pull any data frames and other objects created, the anonymization workspace needs to be loaded as well as the packages used. The following code is an example. Note that is it in a code chunk that will be hidden from the report.
+
+About code chunks: Every code chunk should go between `{r}`. If the code output should be displayed but not the code itself, the option `{r, echo = FALSE}` is used. If neither the response nor the code should be displayed, the option `{r, include = FALSE}` should be used. More examples will be provided below.
+
+*Setting up the workspace in R Markdown*
+
+```{r, eval = F}
+
+{r files, include=FALSE}
+# Load the working space 
+load( “1_scripts/your_workspace_name.RData"))
+```
+
+## The Report {#sec-6report}
+
+### Introduction {#sec-6introduction}
+
+The introduction should include the name of the dataset and the link to the dataset on RIDL. This can be written directly in R Markdown using, i.e. does not need to be part of a code chunk. Consider the following example.
+
+```{r, eval = F}
+# Introduction
+
+__Dataset:__ "Côte d'Ivoire: Mapping of persons at risk of statelessness - April 2019"
+
+__RIDL link:__ <https://ridl.unhcr.org/dataset/civ-statelessness-april-2019/>
+
+```
+
+### Summary {#sec-6summary}
+
+The objective of the summary is to provide the main conclusions of the DRA. It should be one sentence or a short paragraph that includes the following information:
+
+-   if microdata could be rendered anonymous while preserving their utility; and
+
+-   if it is recommended to publish on the MDL and under which Terms of Use.
+
+This can be written directly in R Markdown as a text editor:
+
+```{r, eval = F}
+
+# Summary
+
+__These data could be anonymized while preserving their utility, and it is recommended that they be released as a licensed file on the Microdata Library.__
+```
+
+### List of roles {#sec-6roles}
+
+The list of roles should include the names of everyone involved in the process including the Personal Data Controller, Data Provider(s), Data Curator and Data Protection Focal Point. This can be written directly in R Markdown using a table format for readability. Consider the following example.
+
+```{r, eval = F}
+
+Data Curation Roles                   | 
+------------------------------------- | -------------
+Personal Data Controller              | Name (email)
+Data Provider                         | Name (email)
+Data Curator                          | Name (email)
+
+```
+
+### Summary of disclosure risk scenarios {#sec-6disclosure-risk-scenarios}
+
+This section responds to question 1 in the DRA checklist: *What are the potential disclosure risk scenarios -- e.g., realistic assumptions about who may be interested in the microdata and for what purpose -- and available data and information (both internal and external) covering the same population group that could be linked to this personal microdata (e.g., through the mosaic effect)?*
+
+It should be a short paragraph or two, and can be typed directly using R Markdown as a text editor. Consider the following example.
+
+```{r, eval = F}
+# Potential Disclosure Risk Scenarios
+
+An intruder could be interested in identifying displaced individuals or households living in the camps or finding information about them that are observable such as specific household demographics, livelihood activities, living conditions, displacement experience and intentions for the immediate future.
+
+The likelihood of re-identification of data subjects based on this dataset alone is low due to the fact that:
+a) the anonymized dataset only includes a sample of the original full dataset,
+b) observable variables were checked for granularity and recoded where the level of detail would increase risk of re-identification, and
+c) the data was anonymized until 3-anonymity was reached.
+
+The likelihood of re-identification of data subjects based on combining the anonymized version of the data with another publicly available dataset was not statistically measured, however is considered low due to the low level of publicly available on the data subjects.
+
+```
+
+### Anonymization methods {#sec-6anonymization-methods}
+
+The anonymization methods section should include at minimum a description of the following:
+
+-   weights: an example of a section of weights could look like this:
+
+```{r}
+
+## Weights
+#Survey weights were calculated by dividing the total number of data subjects in the sample frame (N) by the number of data subjects in the sample (n) separately for each strata. The following table provides an overview:
+
+strata <- c("Camp 1", "Camp 2", "Camp 3")
+N <- c(500, 230, 475)
+n <- c(140, 50, 125)
+w <- c(3.5714,4.6000, 3.8000)
+weight_table <- data.frame(strata,N,n,w)
+
+colnames(weight_table) <- c("", "N", "n","weight")
+library(kableExtra)
+kbl(weight_table) %>%
+  kable_classic()
+```
+
+ 
+
+-   variables removed
+
+If any variables were removed from the dataset that will be released on the MDL, they should be listed here. If they were removed using a list (see example under [Remove variables that will not be published](anonymize.qmd#sec-5removeanon)), then it can simply be called and displayed. Consider the following example.
+
+```{r, eval = F}
+## Variable removed
+The following *direct identifiers* were removed from the dataset:
+
+print(direct_identifiers)
+```
+
+ 
+
+-   key variables
+
+All key variables that were used as part of the SDC risk assessment should be listed here. If other variables were modified, but not used as part of the SDC risk assessment, they can be listed under a separate header (e.g. Variables modified). Consider the following example.
+
+```{r, eval = F}
+## Key variables
+The following *key variables* were used for the SDC risk assessment:
+
+  {r, echo=FALSE}
+print(names(sdcObj@origData[,sdcObj@keyVars]))
+```
+
+ 
+
+-   SDC methods performed
+
+This section should include a list of all the SDC method performed, written in a way that is easily understood by the Personal Data Controller, Data Provider(s) and the Data Protection Focal Point. Normally this would have to be written directly in rmarkdown because it is hard to pull from the workspace in a descriptive manner. Consider the following example.
+
+```{r, eval = F}
+## SDC methods performed
+- Generalized (recoded) age of respondent (`age`) to five categories as follows: `0-4 yrs`,`5-17 yrs`,`18-59 yrs`, and `over 60 yrs`
+- Generalized (recoded) number of household members (`hh_mem`) to six groups as follows: `1`, `2`, `3-4`,`5-6`,`7-8`,`>8`
+- Performed the following local suppressions on key variables:
+  
+{r, echo=FALSE}
+print(sdcObj, ‘ls’)
+```
+
+### Assessment of re-identification risk {#sec-6reid-risk}
+
+This section provides a summary of the results of the SDC risk-assessment. It can be pulled in directly from the anonymization workspace. Consider the following example.
+
+```{r, eval = F}
+# Assessment of risk of re-identification of data subjects
+
+{r, echo=FALSE}
+    sdc_output = list(sdcObj@risk$global, sdcObj@risk$individual %>% as.data.frame() %>% arrange(risk) %>% head(5))             
+    print(sdcObj)   
+    print(sdcObj, ‘risk’)
+
+# Printing all record with a risk level higher or equal to 15%
+  as_tibble(sdcObj @risk$individual) %>% filter(risk >=0.15) %>% arrange(desc(risk))
+
+```
+
+### Utility analysis {#sec-6utility-analysis}
+
+This section should include a summary of the result of the utility analysis, at minimum an analysis of the difference between the modified variables in the clean and the anonymous versions of the dataset. It can be a combination of written text, tables, charts and code chunks. Consider the following example for one key variable where a comparison table was created in the anonymization workspace as part of the utility analysis and it is simply called here.
+
+```{r, eval = F}
+
+# Utility analysis
+The results of the utility analysis demonstrate that the difference between the clean and anonymous versions of the datasets is not significant. The analysis below focuses on the key variables with local suppressions.
+
+## Number of household members
+The difference between the respondent gender (`gender`) in the clean vs. anonymous datasets is not significant. See comparison in table below:
+
+{r,echo=FALSE}
+kbl(gender_comparison,table.attr = 'style='width:70%;'',align='l',format.args = list(big.mark = ', ')) %>%
+  kable_classic()
+
+kbl(gender_comparison,table.attr = 'style='width:70%;'',align='l',format.args = list(big.mark = ', ')) %>%
+  kable_classic()
+```
+
+### Conclusions {#sec-6conclusions}
+
+The conclusion section must cover if the data could be rendered anonymous, and if yes, under what condition it should be released on the MDL.
+
+```{r, eval = F}
+
+# Conclusions
+
+1. __Can individual data subjects be identified by any means reasonably likely, based on the data alone or in combination with other data?__
+- [ ] Yes
+- [x] No
+
+2. __ If necessary, are additional technical, organizational or legal measures or otherwise binding commitments in place to reduce the risk of disclosure?__
+- [x] Yes
+- [ ] No
+- [ ] not necessary
+
+# Microdata Library
+This section is only relevant if responses under __Conclusions__ to 1 is 'No' and 2 is 'Yes' or 'not necessary', i.e., data can be rendered anonymous, and the microdata will be published on the MDL.
+
+__Under what conditions should the microdata be published on the MDL?__ 
+
+- [x] Licensed Use File
+- [ ] Public Use File
+- [ ] Direct access
+
+
+```
+
+#### Proposed abstract for the MDL {#sec-6abstract}
+
+This section is not mandatory; however, it may be helpful to include the proposed abstract for the MDL in cases where it is recommended to publish on the MDL so that it can be reviewed at the same time as the DRA report by the Data Provider and eventually the Personal Data Controller. This may save time during the final stages of the process.
+
+### Any other relevant comments or explanations {#sec-6otherinfo}
+
+This section is not mandatory but reserved for any information that is not included in the rest of the report that is important to document about the process and/or share with the Personal Data Controller, Data Provider and Data Protection Focal Point.
+
+### Signatures, titles and dates {#sec-6signatures}
+
+This section is required for accountability. It must include the date of validation of the DRA report, and who was the validator (i.e. Personal Data Controller). A physical or digital signature is not necessary if the Personal Data Controller provided their validation by email and this email is stored with the report.
+
+```{r, eval = F}
+# Signatures, titles and dates
+Information on validation of this report   | 
+------------------------------------- | -------------
+Name of personnel that validated the DRA | Name
+Title of personnel                       | Title
+Date of validation                       | dd/mmm/YYYY
+Signature                                | *see email*
+```
+
+This will render this table:
+
+| Information on validation of this report |             |
+|:----------------------------------------:|:-----------:|
+| Name of personnel that validated the DRA |    Name     |
+|            Title of personnel            |    Title    |
+|            Date of validation            | dd/mmm/YYYY |
+|                Signature                 | *see email* |
+
+## Save disclosure risk assessment report {#sec-6save}
+
+To save the DRA report:
+
+1.  Select `knit` in the panel at the top of the rmarkdown
+
+2.  The document should then open in a R browser. Select "Open in browser".
+
+3.  The document should then open in your default web browser. From there you can print it as a PDF. Make sure to select the box to display "Background graphics" so that the header and footer display properly.

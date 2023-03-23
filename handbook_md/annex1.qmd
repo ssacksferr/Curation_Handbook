@@ -1,0 +1,25 @@
+# Annex: R Packages {#sec-8rpackages}
+
+The following is a list of R packages that can be useful to the work of a Data Curator, and a description of how they may be used. It's obviously non-exhaustive.
+
+| Package    | Description and use                                                                                                                                                  |
+|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| dplyr      | Several tools to manipulate and clean data. Part of the larger tidyverse package.                                                                                    |
+| foreign    | Read and write data stored by some versions of 'Epi Info', 'Minitab', 'S', 'SAS', 'SPSS', 'Stata', 'Systat', 'Weka', and for reading and writing some 'dBase' files. |
+| ggplot2    | Tools to create graphical representations of data. Part of the larger tidyverse package.                                                                             |
+| haven      | Read and write data stored in formats from other statistical pacakages including SAS, SPSS and Stata.                                                                |
+| here       | Constructs paths to project files, avoiding issues with relative paths.                                                                                              |
+| kableExtra | Generate simple tables                                                                                                                                               |
+| knitr      | Generate reports in various formats. Part of the R markdown language                                                                                                 |
+| labelled   | Manipulate variable and response labels.                                                                                                                             |
+| lubridate  | Part of the tidyverse package, useful for manipulating dates.                                                                                                        |
+| readr      | Part of the larger tidyverse package, useful for writing R's own data format RDS.                                                                                    |
+| readxl     | Read data from .xls or .xlsx format                                                                                                                                  |
+| sampling   | Draw samples from a data frame.                                                                                                                                      |
+| sdcMicro   | Perform statistical disclosure control on a dataset.                                                                                                                 |
+| stringr    | Part of the larger tidyverse package.                                                                                                                                |
+| survey     | Perform various statistics and models on a survey dataset, applying survey weights where applicable.                                                                 |
+| tidyr      | Part of the larger tidyverse package.                                                                                                                                |
+| tidyverse  | A set of packages used to manipulate, clean and visualize data including (but not limited to) dplyr, ggplot2, lubridate, readr, stringr and tidyr.                   |
+| VIM        | Tools to create graphical representations of data. Can be used to visualize missing and imputed data.                                                                |
+| writexl    | Export data frame to .xlsx format                                                                                                                                    |

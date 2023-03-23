@@ -1,0 +1,60 @@
+{
+    "entries": [
+        {
+            "file": "getting_started.qmd",
+            "type": "sec",
+            "id": "3gettingstarted",
+            "suffix": "",
+            "title": "Getting started"
+        },
+        {
+            "file": "getting_started.qmd",
+            "type": "sec",
+            "id": "3fileversion",
+            "suffix": "",
+            "title": "Data file versions"
+        },
+        {
+            "file": "getting_started.qmd",
+            "type": "sec",
+            "id": "3software",
+            "suffix": "",
+            "title": "Software requirements"
+        },
+        {
+            "file": "getting_started.qmd",
+            "type": "sec",
+            "id": "3folders",
+            "suffix": "",
+            "title": "Folder structure"
+        },
+        {
+            "file": "getting_started.qmd",
+            "type": "sec",
+            "id": "datasetid",
+            "suffix": "",
+            "title": "Dataset identifier"
+        },
+        {
+            "file": "getting_started.qmd",
+            "type": "sec",
+            "id": "3title",
+            "suffix": "",
+            "title": "Dataset title"
+        },
+        {
+            "file": "getting_started.qmd",
+            "type": "sec",
+            "id": "3filemgmt",
+            "suffix": "",
+            "title": "File management and naming conventions"
+        },
+        {
+            "file": "getting_started.qmd",
+            "type": "sec",
+            "id": "3installing",
+            "suffix": "",
+            "title": "Installing R and R Studio"
+        }
+    ]
+}

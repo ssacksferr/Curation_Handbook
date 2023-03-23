@@ -1,0 +1,5 @@
+# Validation and authorization {#sec-7validation}
+
+Before data can be published on the MDL, there are several steps that need to be taken, including, and most importantly ensuring that the Data Provider agrees with the curation, and validation and authorization is provided by the Personal Data Controller. The steps involved are outlined in section 5.6 of the Curation AI.
+
+Quarterly release Microdata are published on the MDL on a quarterly basis to limit the burden on the DIMAs and Personal Data Controllers to respond to validation and authorization requests particularly if they may have many throughout the year. That said, if requested, microdata can be published outside of the scheduled release.

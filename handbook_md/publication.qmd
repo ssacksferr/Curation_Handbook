@@ -1,0 +1,27 @@
+# Publication on the MDL and other post-curation tasks {#sec-7publication}
+
+Once validation and authorization is received from the Personal Data Controller, the following tasks need to be done to publish the microdata on the MDL as well as update RIDL and other documentation. They are as follows:
+
+## Create MDL metadata {#sec-7metadata}
+
+The metadata needs to be created for the MDL. See \[Annex - Metadata guidance\] for guidance on creating the metadata.
+
+## Request another Data Curator to review metadata {#sec-7review}
+
+Before publication, the team of Data Curators share the task of reviewing datasets uploading to MDL from other Data Curators. This is assigned 1-2 weeks before the quarterly publication.
+
+## Publish data {#sec-7publish-data}
+
+Data are published on a quarterly basis with releases in January, April, July and October.
+
+## Update RIDL {#sec-7update-ridl}
+
+Update RIDL with clean version of data, cleaning script and anonymous version of the data ensuring that each file is labelled correctly. See section [Getting started](getting_started.qmd#sec-3filemgmt) for more details.
+
+## Update data registry {#sec-7update-data-registry}
+
+If the operation or region associated with the dataset has a registry, ensure to update this inventory with the relevant information related to the curation. In addition, update any global data inventories that need to be updated.
+
+## Update SharePoint {#sec-7update-sharepoint}
+
+Save a copy of all curation files on the following SharePoint space [GDS -- Data Curation](https://unhcr365.sharepoint.com/teams/dpsm-datacuration) \> [Data repository](https://unhcr365.sharepoint.com/:f:/r/teams/dpsm-datacuration/Shared%20Documents/General/Data_repository?csf=1&web=1&e=3T7rnw) \> region folder \> country folder.

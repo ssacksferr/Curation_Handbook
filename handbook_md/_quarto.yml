@@ -1,0 +1,44 @@
+project:
+  type: book
+  execute-dir: project
+
+book:
+  title: "UNHCR Microdata Curation Handbook - 2023"
+  author: "UNHCR Global Data Service - Statistics and Demographics Section"
+  search: true
+  date: "2/6/2023"
+  cover-image: cover.png
+  downloads: [pdf, epub]
+  version: "Version 5.1"
+  chapters:
+    - index.qmd
+    - part: "Getting Started"
+      chapters:
+        - intro.qmd
+        - getting_started.qmd
+        - indentify_data.qmd
+    - part: "Anonymization" 
+      chapters:
+        - anonymize.qmd
+        - drr.qmd
+    - part: "Publication of data"
+      chapters: 
+        - validation.qmd
+        - publication.qmd
+  appendices:
+    - annex1.qmd
+    - annex2.qmd
+    - annex3.qmd
+    
+format:
+  html:
+    number-depth: 5
+    code-overflow: wrap
+    code-fold: true
+  pdf:
+    toc: true
+    tbl-colwidths: auto
+  epub:
+    cover-image: cover.png
+editor: visual
+

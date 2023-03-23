@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>UNHCR Microdata Curation Handbook - 2023 - 5&nbsp; Disclosure risk assessment</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./validation.html" rel="next">
+<link href="./anonymize.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Disclosure risk assessment</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">UNHCR Microdata Curation Handbook - 2023</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./UNHCR-Microdata-Curation-Handbook---2023.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./UNHCR-Microdata-Curation-Handbook---2023.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">About the handbook</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Getting Started</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./indentify_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Identify data for publication</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Anonymization</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./anonymize.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Anonymize</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./drr.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Disclosure risk assessment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Publication of data</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./validation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Validation and authorization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./publication.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Publication on the MDL and other post-curation tasks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./annex1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Annex: R Packages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./annex2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Annex - Metadata guidance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./annex3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Annex: Key and sensitive variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-6markdownformat" id="toc-sec-6markdownformat" class="nav-link active" data-scroll-target="#sec-6markdownformat"><span class="toc-section-number">5.1</span>  R Markdown text formatting</a></li>
+  <li><a href="#sec-6gettingstarted" id="toc-sec-6gettingstarted" class="nav-link" data-scroll-target="#sec-6gettingstarted"><span class="toc-section-number">5.2</span>  Getting started</a></li>
+  <li><a href="#sec-6report" id="toc-sec-6report" class="nav-link" data-scroll-target="#sec-6report"><span class="toc-section-number">5.3</span>  The Report</a>
+  <ul class="collapse">
+  <li><a href="#sec-6introduction" id="toc-sec-6introduction" class="nav-link" data-scroll-target="#sec-6introduction"><span class="toc-section-number">5.3.1</span>  Introduction</a></li>
+  <li><a href="#sec-6summary" id="toc-sec-6summary" class="nav-link" data-scroll-target="#sec-6summary"><span class="toc-section-number">5.3.2</span>  Summary</a></li>
+  <li><a href="#sec-6roles" id="toc-sec-6roles" class="nav-link" data-scroll-target="#sec-6roles"><span class="toc-section-number">5.3.3</span>  List of roles</a></li>
+  <li><a href="#summary-of-disclosure-risk-scenarios" id="toc-summary-of-disclosure-risk-scenarios" class="nav-link" data-scroll-target="#summary-of-disclosure-risk-scenarios"><span class="toc-section-number">5.3.4</span>  Summary of disclosure risk scenarios</a></li>
+  <li><a href="#anonymization-methods" id="toc-anonymization-methods" class="nav-link" data-scroll-target="#anonymization-methods"><span class="toc-section-number">5.3.5</span>  Anonymization methods</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-6disclosure" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Disclosure risk assessment</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Once the microdata has been rendered anonymous or a conclusion has been made that it cannot be rendered anonymous without too much loss of utility, the Data Curator completes the disclosure risk assessment which includes information from the anonymization using SDC as well as complementary information on any other risks associated with disclosure, and writes the disclosure risk assessment (DRA) report. The Data Curator shares this report with the Data Provider, Data Controller and Data Protection Focal Point to inform the validation of the anonymization and authorization for the release of the anonymous version of the dataset on the MDL.</p>
+<p>The DRA report must, at minimum, include the following information:</p>
+<ol type="1">
+<li><p>Summary of the DRA</p></li>
+<li><p>List of UNHCR personnel, partners and/or other third parties performing each role (see Table 1) in the data curation process</p></li>
+<li><p>Summary of the potential disclosure risk scenarios</p></li>
+<li><p>Anonymization methods</p></li>
+</ol>
+<!-- -->
+<ol type="a">
+<li><p>Weights used for the anonymization</p></li>
+<li><p>List of variables removed from the dataset</p></li>
+<li><p>List of key variables used for the anonymization</p></li>
+<li><p>Statistical disclosure control (SDC) methods performed and on which variables</p></li>
+</ol>
+<!-- -->
+<ol start="5" type="1">
+<li><p>Assessment of the risk of re-identification of data subjects in the microdata</p></li>
+<li><p>Analysis of the utility of the anonymous microdata</p></li>
+<li><p>Conclusions</p></li>
+</ol>
+<!-- -->
+<ol type="a">
+<li><p>Can individual data subjects be identified by any means reasonably likely, based on the data alone or in combination with other data? [Yes / No]</p></li>
+<li><p>If necessary, are additional technical, organizational or legal measures or otherwise binding commitments in place to reduce the risk of disclosure? [Yes / No]</p></li>
+<li><p>If the microdataset will be published on the MDL, specify the proposed Terms of Use.</p></li>
+</ol>
+<!-- -->
+<ol start="8" type="1">
+<li><p>Any other relevant comments or explanations.</p></li>
+<li><p>Signatures, titles and dates (<em>Note: this is necessary for internal accountability for decision-making. As such, an email in lieu of signature is considered sufficient.</em>)</p></li>
+</ol>
+<p>&nbsp;</p>
+<p>A <a href="https://rmarkdown.rstudio.com/">R Markdown</a> DRA report template was developed to facilitate the linkage between the anonymization and the report. This is done by combining text and code chunks<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. It is based off the UNHCR R Markdown report template (<a href="https://github.com/vidonne/unhcrdown"><code>unhcrdown</code></a>), which was developed to facilitate an easy-to-read report for both technical and non-technical audience. Before getting started, both need to be installed if not already.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>packages_needed <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"dplyr"</span>,<span class="st">"foreign"</span>,<span class="st">"ggplot2"</span>,<span class="st">"haven"</span>,<span class="st">"here"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"kableExtra"</span>,<span class="st">"knitr"</span>, <span class="st">"labelled"</span>,<span class="st">"lubridate"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"readr"</span>,<span class="st">"readxl"</span>,<span class="st">"rmarkdown"</span>,<span class="st">"sampling"</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"sdcMicro"</span>,<span class="st">"stringr"</span>,<span class="st">"survey"</span>,<span class="st">"tidyr"</span>,<span class="st">"tidyverse"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"VIM"</span>, <span class="st">"writexl"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                    repos <span class="ot">=</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">'https://cran.rstudio.com'</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                              <span class="at">CRANextra =</span> <span class="st">'https://macos.rbind.io'</span>) </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">install.packages</span>(packages_needed[<span class="sc">!</span>packages_needed <span class="sc">%in%</span> <span class="fu">row.names</span>(<span class="fu">installed.packages</span>())], <span class="at">dependencies =</span> <span class="cn">TRUE</span>, <span class="at">repos =</span> repos)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">update.packages</span>(<span class="at">oldPkgs =</span> packages_needed, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">sapply</span>(packages_needed, require, <span class="at">character.only=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># UNHCR package for report template</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'vidonne/unhcrdown'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="sec-6markdownformat" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-6markdownformat"><span class="header-section-number">5.1</span> R Markdown text formatting</h2>
+<p>The following table provides some of the syntax used in R Markdown for formatting text in the DRA report. Note this is only a sample of the various types of formatting that can be done in R Markdown. The following <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf.">cheat sheet</a> is a useful tool to navigating all additional features:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Syntax</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"># Header 1</td>
+<td style="text-align: center;">Header 1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">## Header 2</td>
+<td style="text-align: center;">Header 2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">### Header 3</td>
+<td style="text-align: center;">Header 3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">### Header 4</td>
+<td style="text-align: center;">Header 4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">** bold ** and __ bold __</td>
+<td style="text-align: center;"><strong>bold</strong> and <strong>bold</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">* italics * and _ italics _</td>
+<td style="text-align: center;"><em>italics</em> and <em>italics</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">`code text`</td>
+<td style="text-align: center;"><code>code text</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">* unordered list</td>
+<td style="text-align: center;">·&nbsp;&nbsp; unordered list</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">+ sub-item</td>
+<td style="text-align: center;">sub-item</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1.&nbsp;&nbsp;&nbsp;&nbsp; ordered list</td>
+<td style="text-align: center;">1. ordered list</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2.&nbsp;&nbsp;&nbsp;&nbsp; ordered list</td>
+<td style="text-align: center;">2. ordered list</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+</section>
+<section id="sec-6gettingstarted" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sec-6gettingstarted"><span class="header-section-number">5.2</span> Getting started</h2>
+<p>The template used below will call on the anonymization workspace and pull any data frames and other objects created. Ensure the workspace was saved prior to starting to write the report (see <a href="./anonymize.html#sec-5weights">Prepare weights</a>).</p>
+<p>In cases of disproportionately stratified datasets, weights must be applied to analysis that spans across strata. The survey package can be used to apply the weights and run simple statistics.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create survey</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>your_dataset_survey <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids=</span><span class="sc">~</span><span class="dv">0</span>, <span class="at">weights=</span><span class="sc">~</span>survey_weight,<span class="at">strata=</span><span class="sc">~</span>your_strata,<span class="at">survey.lonely.psu=</span><span class="st">"adjust"</span>,<span class="at">data=</span>your_dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Now you can use your_dataset_survey to calculate the statistics needed. Note that it is more useful to compare proportions produced by the results as opposed to summaries because the summaries will be estimates for the entire population of interest in the sample frame not just within the sample</p>
+<p>To start the report, open R studio and create a R Markdown file. Choose the HTML format and select the location to store the document.</p>
+<p>Every R Markdown file starts with a YAML header, where the details of the document including title, date, author and template are specified. Details are always between - - -. The title and date will display on the first page of the report as well as in the header. It is defined from the beginning together with the report template.</p>
+<p><em>Creating the title and defining the template in R Markdown</em></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">'UNHCR Microdata Disclosure Risk Assessment Report'</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">'First and Last Name - Position'</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">'`r Sys.Date()`’</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">output: unhcrdown::paged_simple</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>To be able to “call” on the anonymization script and pull any data frames and other objects created, the anonymization workspace needs to be loaded as well as the packages used. The following code is an example. Note that is it in a code chunk that will be hidden from the report.</p>
+<p>About code chunks: Every code chunk should go between <code>{r}</code>. If the code output should be displayed but not the code itself, the option <code>{r, echo = FALSE}</code> is used. If neither the response nor the code should be displayed, the option <code>{r, include = FALSE}</code> should be used. More examples will be provided below.</p>
+<p><em>Setting up the workspace in R Markdown</em></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>{r files, include<span class="ot">=</span><span class="cn">FALSE</span>}</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the working space </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>( “1_scripts<span class="sc">/</span>your_workspace_name.RData<span class="st">"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="sec-6report" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-6report"><span class="header-section-number">5.3</span> The Report</h2>
+<section id="sec-6introduction" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="sec-6introduction"><span class="header-section-number">5.3.1</span> Introduction</h3>
+<p>The introduction should include the name of the dataset and the link to the dataset on RIDL. This can be written directly in R Markdown using, i.e.&nbsp;does not need to be part of a code chunk. Consider the following example.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Introduction</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>__Dataset<span class="sc">:</span>__ <span class="st">"Côte d'Ivoire: Mapping of persons at risk of statelessness - April 2019"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>__RIDL link<span class="sc">:</span>__ <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>ridl.unhcr.org<span class="sc">/</span>dataset<span class="sc">/</span>civ<span class="sc">-</span>statelessness<span class="sc">-</span>april<span class="dv">-2019</span><span class="sc">/</span><span class="er">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="sec-6summary" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="sec-6summary"><span class="header-section-number">5.3.2</span> Summary</h3>
+<p>The objective of the summary is to provide the main conclusions of the DRA. It should be one sentence or a short paragraph that includes the following information:</p>
+<ul>
+<li><p>if microdata could be rendered anonymous while preserving their utility; and</p></li>
+<li><p>if it is recommended to publish on the MDL and under which Terms of Use.</p></li>
+</ul>
+<p>This can be written directly in R Markdown as a text editor:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>__These data could be anonymized <span class="cf">while</span> preserving their utility, and it is recommended that they be released as a licensed file on the Microdata Library.__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="sec-6roles" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="sec-6roles"><span class="header-section-number">5.3.3</span> List of roles</h3>
+<p>The list of roles should include the names of everyone involved in the process including the Personal Data Controller, Data Provider(s), Data Curator and Data Protection Focal Point. This can be written directly in R Markdown using a table format for readability. Consider the following example.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Data Curation Roles                   <span class="sc">|</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-------------------------------------</span> <span class="er">|</span> <span class="sc">-------------</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Personal Data Controller              <span class="sc">|</span> <span class="fu">Name</span> (email)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>Data Provider                         <span class="sc">|</span> <span class="fu">Name</span> (email)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Data Curator                          <span class="sc">|</span> <span class="fu">Name</span> (email)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="summary-of-disclosure-risk-scenarios" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="summary-of-disclosure-risk-scenarios"><span class="header-section-number">5.3.4</span> Summary of disclosure risk scenarios</h3>
+<p>This section responds to question 1 in the DRA checklist: <em>What are the potential disclosure risk scenarios – e.g., realistic assumptions about who may be interested in the microdata and for what purpose – and available data and information (both internal and external) covering the same population group that could be linked to this personal microdata (e.g., through the mosaic effect)?</em></p>
+<p>It should be a short paragraph or two, and can be typed directly using R Markdown as a text editor. Consider the following example.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Potential Disclosure Risk Scenarios</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>An intruder could be interested <span class="cf">in</span> identifying displaced individuals or households living <span class="cf">in</span> the camps or finding information about them that are observable such as specific household demographics, livelihood activities, living conditions, displacement experience and intentions <span class="cf">for</span> the immediate future.</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>The likelihood of re<span class="sc">-</span>identification of data subjects based on this dataset alone is low due to the fact that<span class="sc">:</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>a<span class="er">)</span> the anonymized dataset only includes a sample of the original full dataset,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>b<span class="er">)</span> observable variables were checked <span class="cf">for</span> granularity and recoded where the level of detail would increase risk of re<span class="sc">-</span>identification, and</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>c<span class="er">)</span> the data was anonymized until <span class="dv">3</span><span class="sc">-</span>anonymity was reached.</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>The likelihood of re<span class="sc">-</span>identification of data subjects based on combining the anonymized version of the data with another publicly available dataset was not statistically measured, however is considered low due to the low level of publicly available on the data subjects.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="anonymization-methods" class="level3" data-number="5.3.5">
+<h3 data-number="5.3.5" class="anchored" data-anchor-id="anonymization-methods"><span class="header-section-number">5.3.5</span> Anonymization methods</h3>
+<p>The anonymization methods section should include at minimum a description of the following:</p>
+<ul>
+<li>weights: an example of a section of weights could look like this:</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Weights</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Survey weights were calculated by dividing the total number of data subjects in the sample frame (N) by the number of data subjects in the sample (n) separately for each strata. The following table provides an overview:</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>strata <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Camp 1"</span>, <span class="st">"Camp 2"</span>, <span class="st">"Camp 3"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">230</span>, <span class="dv">475</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">140</span>, <span class="dv">50</span>, <span class="dv">125</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">3.5714</span>,<span class="fl">4.6000</span>, <span class="fl">3.8000</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>weight_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(strata,N,n,w)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(weight_table) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"N"</span>, <span class="st">"n"</span>,<span class="st">"weight"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'kableExtra' was built under R version 4.1.3</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(weight_table) <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">  </th>
+   <th style="text-align:right;"> N </th>
+   <th style="text-align:right;"> n </th>
+   <th style="text-align:right;"> weight </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Camp 1 </td>
+   <td style="text-align:right;"> 500 </td>
+   <td style="text-align:right;"> 140 </td>
+   <td style="text-align:right;"> 3.5714 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp 2 </td>
+   <td style="text-align:right;"> 230 </td>
+   <td style="text-align:right;"> 50 </td>
+   <td style="text-align:right;"> 4.6000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp 3 </td>
+   <td style="text-align:right;"> 475 </td>
+   <td style="text-align:right;"> 125 </td>
+   <td style="text-align:right;"> 3.8000 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>&nbsp;</p>
+<ul>
+<li>variables removed</li>
+</ul>
+<p>If any variables were removed from the dataset that will be released on the MDL, they should be listed here. If they were removed using a list (see example under <a href="./anonymize.html#sec-5removeanon">Remove variables that will not be published</a>), then it can simply be called and displayed. Consider the following example.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Variable removed</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>The following <span class="sc">*</span>direct identifiers<span class="sc">*</span> were removed from the dataset<span class="sc">:</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(direct_identifiers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<ul>
+<li>key variables</li>
+</ul>
+<p>All key variables that were used as part of the SDC risk assessment should be listed here. If other variables were modified, but not used as part of the SDC risk assessment, they can be listed under a separate header (e.g.&nbsp;Variables modified). Consider the following example.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Key variables</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>The following <span class="sc">*</span>key variables<span class="sc">*</span> were used <span class="cf">for</span> the SDC risk assessment<span class="sc">:</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  {r, echo<span class="ot">=</span><span class="cn">FALSE</span>}</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">names</span>(sdcObj<span class="sc">@</span>origData[,sdcObj<span class="sc">@</span>keyVars]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;</p>
+<ul>
+<li>SDC methods performed</li>
+</ul>
+<p>Some of this information can be written directly in R Markdown as a text editors; others can be pulled in from the anonymization workspace as code chunks. Consider the following examples broken down by section.</p>
+
+
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>For more information on R Markdown and code chunks: <a href="https://rmarkdown.rstudio.com/lesson-3.html" class="uri">https://rmarkdown.rstudio.com/lesson-3.html</a> and the full code chunk reference guide: <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.24672569.2078611878.1633074546-1715259657.1633074546" class="uri">https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.24672569.2078611878.1633074546-1715259657.1633074546</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./anonymize.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Anonymize</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./validation.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Validation and authorization</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

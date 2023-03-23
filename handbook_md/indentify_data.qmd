@@ -1,0 +1,169 @@
+# Identify data for publication {#sec-4identify}
+
+Any UNHCR personnel who may perform the Data Curator role for a given dataset will need assist in the process of determining whether it is relevant for anonymization and publication on the MDL and ensuring all the information required for the disclosure risk assessment (DRA) is available (see Curation AI section 5.3). This section focuses on these tasks and is slightly different for microdata collected using proGres v4 and outside of proGres v4.
+
+## Data collected using proGres v4 {#sec-4datacheck}
+
+For personal microdata of PoCs collected and managed using proGres v4, the microdata is uploaded to RIDL on an annual basis. The protection team in each operation should meet with the personnel identified to perform the Data Curator role for a given dataset on an annual basis, and address the following:
+
+-   Identify if there is any reason not to publish an anonymous version of the data on the MDL (see section 5.3 of the Curation AI).
+
+-   Identify if there is any sensitive data or information in the proGres v4 on RIDL.
+
+-   Determine the variables and level of detail that need to be preserved in the microdataset.
+
+Note that the initial meeting with a given country operation before the first release of personal microdata of PoCs from proGres v4 will potentially require more time to go over the context, curation objectives and planning, while meetings in the subsequent years may simply aim to determine if the operational context and/or protection risks have changed in a manner that would impact the methods used in microdata curation and the utility of the data.
+
+## Data collected outside of proGres v4 {#sec-4outsideprogres}
+
+For personal microdata of PoCs collected outside proGres v4, the Data Curator may identify data for curation following several different scenarios, such as:
+
+-   After consulting with the Personal Data Controller and/or Data Protection Focal Point, the Data Provider notifies the Data Curator each time they upload personal microdata of PoCs to RIDL and believe it may be suitable for external publication on the MDL.
+
+-   UNHCR personnel who regularly perform the Data Curator role, DIMA units and country-level IMOs maintain regular contact and monitor RIDL to identify personal microdata of PoCs that may be suitable for external publication. They may approach the Data Providers at any time.
+
+-   A third party may specifically request access to microdata held by UNHCR, and a Data Curator is notified of this request so they can provide support. 
+
+A registry of personal microdata of PoCs developed and/or maintained by the Personal Data Controller and Data Providers (see Curation AI paragraph 5.2.3) can serve as a useful tool in identifying microdata collected outside of proGres v4 for curation. The inventory should include some of the following useful details:
+
+-   The title of the personal microdata of PoCs collected;
+
+-   Location (region and country);
+
+-   Year
+
+-   If the data were catalogued on RIDL (yes/no);
+
+-   link to the dataset on RIDL (if applicable);
+
+-   If the data are relevant for anonymization and publication on the MDL (yes/no);
+
+-   If they data were curated and published on the MDL (yes/no); and
+
+-   Personal Data Controller, Data Provider and Data Curator names.
+
+Below is a very simplified example of a registry. Note that this could be integrated into an existing registry developed by the country operation or regional bureau, simply adding the fields that are helpful to track the storage of microdata on RIDL, anonymization and publication on the MDL.
+
+| Country | Year | Source |    Dataset    | RIDL | MDL | Data provider | Data Curator |
+|:-------:|:----:|:------:|:-------------:|:----:|:---:|:-------------:|:------------:|
+|   CMR   | 2016 | UNHCR  | Minawao: SENS | yes  | yes |   John Doe    |   Jane Doe   |
+
+: Example of registry
+
+**Datasets that change frequently**
+
+For datasets that have frequent updates, such as monitoring exercises repeated on a regular interval (monthly, quarterly, yearly, etc.), panel surveys, etc., each update is treated as a separate (new) dataset. The metadata should specify the coverage of the dataset, allowing Data Users to understand the difference between each version of the dataset.
+
+## Compile information required for the disclosure risk assessment {#sec-4compileinfo}
+
+Once microdata is identified, the Data Curator needs to confirm that all the information required for the disclosure risk assessment (DRA) is available. Most of this information should be in the report (if available) and/or the RIDL metadata, however there are some details that are crucial that may not be available.
+
+The Data Curator can compare what information is available to what is required in the DRA checklist and reach out to the Data Provider to compile any missing or incomplete information as needed. The following is the DRA checklist from Annex D of the Curation AI.
+
+1.  What are the potential disclosure risk scenarios -- e.g., realistic assumptions about who may be interested in the microdata and for what purpose -- and available data and information (both internal and external) covering the same population group that could be linked to this personal microdata (e.g., through the mosaic effect)?
+
+2.  Is there any sensitive data or information in the dataset, including sensitive personal data? If yes, what are they? Some commonly found in UNHCR's microdata include, for example:
+
+-   geographic location (current and/or former location if displaced population);
+
+-   age, gender and diversity considerations such as language, ethnicity, religion;
+
+-   occupation, livelihood activity, income level, etc.; and
+
+-   variables that are related or can be linked to the sensitive variables.
+
+3.  What are the 'key variables' or variables that can be used to indirectly identify a data subject or be linked to another variable that can then be used to identify a data subject? Some commonly found in UNHCR's microdata include, for example:
+
+-   geographic location (current and/or former location if displaced population);
+
+-   household size, head of household marital status, specific vulnerabilities within the household;
+
+-   age, gender and diversity considerations such as language, ethnicity, religion; and
+
+-   occupation, livelihood activity, income level, etc.
+
+4.  If the microdata is a sample, what is the sample design and weights? Note that if the sample design included stratification, the weights need to be calculated for each stratum.
+
+5.  Which cleaning measures were already taken, including the treatment of outliers, grouping/re-grouping of variables, etc.?
+
+6.  Was the personal microdata of PoCs collected directly by UNHCR, by a partner on behalf of UNHCR, jointly with a partner, or jointly with another third party?
+
+7.  Are additional technical, organizational or legal measures or otherwise binding commitments necessary to be put in place to reduce the risk of disclosure? These measures and commitments are context specific. Some commonly found examples include:
+
+-   access control and management
+
+-   statistical disclosure control (SDC)
+
+-   encryption
+
+-   bilateral or multilateral data sharing or collaboration agreements
+
+-   Terms of Use
+
+-   other contractual or written commitments
+
+-   training for personnel
+
+-   etc. 
+
+## Data from external providers {#sec-4externaldata}
+
+By default, and when requested by a data provider, the MDL will host metadata on data made available externally by other institutions. Each study will hold a DDI file, but no additional documentation will be hosted in the MDL unless agreed upon by the data owning institution. Data will be hosted on the MDL if it is agreed with the data controlling institution.
+
+Requests to upload metadata from external providers that are hosted externally are evaluated case-by-case, based on the rationale provided in section 3.2 of Administrative Instruction on the Curation of Personal Microdata of Persons of Concern to UNHCR. If data is requested to be made available, the data provider will be requested to meet the conditions outlined in section 5.3.3 of that Administrative Instruction.
+
+When data is not hosted in the MDL, UNHCR's MDL will not handle data requests for external datasets. For institutions that require UNHCR's MDL to do so, the data requests will be handled under the same procedures as UNHCR's datasets.
+
+### Procedures for specific platforms {#sec-4outsideplat}
+
+#### OCHA [HDX](https://data.humdata.org/) {#sec-4ocha}
+
+*From UNHCR -- MDL to HDX*
+
+-   HDX has set up an automatic scraper that extracts data from the UNHCR NADA server (external facing platform)
+
+-   Custodian of scraper is HDX
+
+-   Scraper creates one entry per each dataset to be stored under a UNHCR collection
+
+-   Scraper only collects data that is identified in the field 'ID' as beginning with prefix "UNHCR\_", as to avoid double harvesting
+
+-   In order to maintain versions unified, access to data is handled by redirecting users back to UNHCR request page to download the data.
+
+*From HDX to UNHCR -- MDL*
+
+-   UNHCR has written an R script that searches for keywords of HDX datasets using the R client of HDX
+
+-   Custodian of script is HCR
+
+-   When datasets hit the queries, UNHCR complements the existing metadata available in HDX to make it DDI compliant
+
+-   Datasets with created documentation are to be stored under a HDX collection
+
+-   In order to maintain versions unified, access to data is handled by redirecting users back to HDX request page to download the data.
+
+-   HDX datasets are not stored in UNHCR's internal platform
+
+#### WB [Microdata Library](https://microdata.worldbank.org/index.php/home) {#sec-4wb}
+
+*From UNHCR -- MDL to WB MDL*
+
+-   WB uses `NADAR` package to extract metadata at the study and variable level from UNHCR NADA server (external facing platform)
+
+-   WB sometimes amends metadata slightly to adhere to internal metadata standards
+
+-   Datasets created by UNHCR, i.e. those with the prefix "UNHCR\_" in their ID, are to be stored under a UNHCR collection
+
+-   In order to maintain versions unified, access to data is handled by redirecting users back to UNHCR request page to download the data.
+
+-   Documentation like reports, questionnaires and metadata files are available in both platforms
+
+*From WB MDL to UNHCR - MDL*
+
+-   UNHCR uses keywords to identify suitable datasets for its MDL on WB NADA server
+
+-   UNHCR uses MDL package to extract metadata at the study and variable level from WB NADA server (external facing platform)
+
+-   In order to maintain versions unified, access to data is handled by redirecting users back to WB request page to download the data.
+
+-   Documentation like reports, questionnaires and metadata files are available in both platforms

@@ -1,0 +1,60 @@
+{
+    "entries": [
+        {
+            "file": "indentify_data.qmd",
+            "type": "sec",
+            "id": "4wb",
+            "suffix": "",
+            "title": "WB Microdata Library"
+        },
+        {
+            "file": "indentify_data.qmd",
+            "type": "sec",
+            "id": "4ocha",
+            "suffix": "",
+            "title": "OCHA HDX"
+        },
+        {
+            "file": "indentify_data.qmd",
+            "type": "sec",
+            "id": "4datacheck",
+            "suffix": "",
+            "title": "Data collected using proGres v4"
+        },
+        {
+            "file": "indentify_data.qmd",
+            "type": "sec",
+            "id": "4externaldata",
+            "suffix": "",
+            "title": "Data from external providers"
+        },
+        {
+            "file": "indentify_data.qmd",
+            "type": "sec",
+            "id": "4outsideplat",
+            "suffix": "",
+            "title": "Procedures for specific platforms"
+        },
+        {
+            "file": "indentify_data.qmd",
+            "type": "sec",
+            "id": "4compileinfo",
+            "suffix": "",
+            "title": "Compile information required for the disclosure risk assessment"
+        },
+        {
+            "file": "indentify_data.qmd",
+            "type": "sec",
+            "id": "4identify",
+            "suffix": "",
+            "title": "Identify data for publication"
+        },
+        {
+            "file": "indentify_data.qmd",
+            "type": "sec",
+            "id": "4outsideprogres",
+            "suffix": "",
+            "title": "Data collected outside of proGres v4"
+        }
+    ]
+}

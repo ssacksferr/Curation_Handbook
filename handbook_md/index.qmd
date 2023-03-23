@@ -1,0 +1,5 @@
+# About the handbook {.unnumbered}
+
+This handbook is a technical guide for curating personal microdata of persons of concern (PoCs) to UNHCR, and uploading this data internally on the [Raw Internal Data Library (RIDL)](https://ridl.unhcr.org/) and publishing it externally on UNHCR's [Microdata Library (MDL)](https://microdata.unhcr.org/). It is complementary to the Administrative Instruction, *Curation of Personal Microdata of PoCs to UNHCR, herein referred to as the 'Curation AI'*, and was written with the assumption that any user of the handbook has read and understands the Curation AI.
+
+For guidance on curation and anonymization of specific UNHCR surveys, visit [this page instead](https://rstudio.unhcr.org/anon_specific_surveys/). Access can be granted by the Curation Team.

@@ -1,0 +1,7 @@
+[2,"\n"]
+[1,"[1/6] index.qmd\n[2/6] intro.qmd\n[3/6] getting_started.qmd\n[4/6] indentify_data.qmd\n[5/6] anonymize.qmd\n[6/6] references.qmd\n\n"]
+[1,"pandoc \n  to: latex\n  output-file: index.tex\n  standalone: true\n  toc: true\n  number-sections: true\n  top-level-division: chapter\n  pdf-engine: xelatex\n  variables:\n    graphics: true\n    tables: true\n  default-image-extension: pdf\n  \nmetadata\n  crossref:\n    chapters: true\n  documentclass: scrreprt\n  papersize: letter\n  classoption:\n    - DIV=11\n    - numbers=noendperiod\n  header-includes:\n    - '\\KOMAoption{captions}{tableheading}'\n  block-headings: true\n  bibliography:\n    - references.bib\n  editor: visual\n  title: UNHCR Microdata Curation Handbook - 2023\n  author: UNHCR Global Data Service - Statistics and Demographics Section\n  date: 2/6/2023\n  \n"]
+[1,"running xelatex - 1\n"]
+[1,"  This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex)\n   restricted \\write18 enabled.\n  entering extended mode\n  \nrunning xelatex - 2\n"]
+[1,"  This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex)\n   restricted \\write18 enabled.\n  entering extended mode\n  \nrunning xelatex - 3\n"]
+[1,"  This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex)\n   restricted \\write18 enabled.\n  entering extended mode\n  \n\nOutput created: _book\\UNHCR-Microdata-Curation-Handbook---2023.pdf\n\nWatching files for changes\nBrowse at http://localhost:7804/web/viewer.html\n"]

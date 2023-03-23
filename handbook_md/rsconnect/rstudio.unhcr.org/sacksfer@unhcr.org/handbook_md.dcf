@@ -1,0 +1,13 @@
+name: handbook_md
+title: handbook_md
+username: sacksfer@unhcr.org
+account: sacksfer@unhcr.org
+server: rstudio.unhcr.org
+hostUrl: https://rstudio.unhcr.org/__api__
+appId: 129
+bundleId: 616
+url: https://rstudio.unhcr.org/Microdata_Curation_Handbook/
+when: 1677059264.75388
+lastSyncTime: 1677059264.75388
+asMultiple: FALSE
+asStatic: TRUE

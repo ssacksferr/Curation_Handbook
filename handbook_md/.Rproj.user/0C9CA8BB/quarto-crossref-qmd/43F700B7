@@ -1,0 +1,39 @@
+{
+    "entries": [
+        {
+            "file": "intro.qmd",
+            "type": "sec",
+            "id": "2purpose",
+            "suffix": "",
+            "title": "Purpose and objective"
+        },
+        {
+            "file": "intro.qmd",
+            "type": "sec",
+            "id": "2intro",
+            "suffix": "",
+            "title": "Introduction"
+        },
+        {
+            "file": "intro.qmd",
+            "type": "sec",
+            "id": "2audience",
+            "suffix": "",
+            "title": "Audience"
+        },
+        {
+            "file": "intro.qmd",
+            "type": "sec",
+            "id": "2contact",
+            "suffix": "",
+            "title": "Contact"
+        },
+        {
+            "file": "intro.qmd",
+            "type": "sec",
+            "id": "2scope",
+            "suffix": "",
+            "title": "Scope"
+        }
+    ]
+}

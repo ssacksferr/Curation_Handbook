@@ -1,0 +1,5 @@
+[2,"\n"]
+[1,"pandoc \n  to: html\n  output-file: annex1.html\n  standalone: true\n  toc: true\n  number-sections: true\n  title-prefix: UNHCR Microdata Curation Handbook - 2023\n  section-divs: true\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  \nmetadata\n  crossref:\n    chapters: true\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  editor: visual\n  theme: cosmo\n  number-depth: 3\n  hide-description: true\n  \n"]
+[1,"Output created: _book\\annex1.html\n\nPreparing to preview\n"]
+[1,"\nWatching files for changes\nBrowse at http://localhost:7521/annex1.html\n"]
+[1,"GET: /annex1.html\n"]

@@ -1,0 +1,4 @@
+"0","kanon3 %>% print(n=Inf)
+"
+"2","Error in kanon3 %>% print(n = Inf) : could not find function ""%>%""
+"
